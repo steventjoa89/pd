@@ -44,9 +44,7 @@
 </head>
 <body>
 
-
   <main class="container">
-    
     <div style="margin-top: 20%;">
       <div class="mt-4 d-flex justify-content-center">
         <p class="font-roboto font-roboto-600">
@@ -55,7 +53,6 @@
         </p>
       </div>
     </div>
-    
 
     <div class="row mb-8">
       <div class="col-md-12">
@@ -63,7 +60,7 @@
           <div class="col p-4 d-flex flex-column position-static">
             <h6 class="my-1 center font-roboto font-roboto-600">Tiket Check-In</h6>
 
-            <p class="my-1 center font-roboto font-roboto-400 font-roboto-subtitle">Supermall Karawaci</p>
+            <p id="location" class="my-1 center font-roboto font-roboto-400 font-roboto-subtitle">Supermall Karawaci</p>
 
             <p class="my-1 center font-roboto font-roboto-500 font-roboto-subtitle font-roboto-status">Aktivitas Dalam Ruangan</p>
             
@@ -71,7 +68,7 @@
 
             <h6 class="my-1 mt-4 center font-roboto font-roboto-500 font-roboto-date">Tanggal &amp; Waktu check-in</h6>
 
-            <p class="my-1 center font-roboto font-roboto-400 font-roboto-subtitle">20 Agustus 2021, 12:35 WIB</p>
+            <p id="current-date" class="my-1 center font-roboto font-roboto-400 font-roboto-subtitle">20 Agustus 2021, 12:35 WIB</p>
 
             <!-- QR CODE BEGINS HERE -->
             <div class="my-1 center">
@@ -100,5 +97,60 @@
     </div>
   </main>
   
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    let currentdate = new Date();
+    // 20 Agustus 2021, 12:35 WIB
+    let month = "";
+    switch(currentdate.getMonth()+1){
+      case 1:
+        month = "Januari"
+        break;
+      case 2:
+        month = "Februari"
+        break;
+      case 3:
+        month = "Maret"
+        break;
+      case 4:
+        month = "April"
+        break;
+      case 5:
+        month = "Mei"
+        break;
+      case 6:
+        month = "Juni"
+        break;
+      case 7:
+        month = "Juli"
+        break;
+      case 8:
+        month = "Agustus"
+        break;
+      case 9:
+        month = "September"
+        break;
+      case 10:
+        month = "Oktober"
+        break;
+      case 11:
+        month = "November"
+        break;
+      case 12:
+        month = "Desember"
+        break;
+      default:
+        break;
+    }
+    let checkInDate = `${currentdate.getDate()} ${month} ${currentdate.getFullYear()}, ${currentdate.getHours()}:${currentdate.getMinutes()} WIB`;
+    $('#current-date').html(checkInDate);
+
+    let searchParams = new URLSearchParams(window.location.search)
+    let currLocation = "Supermall Karawaci";
+    if(searchParams.has('mall')){
+      currLocation = searchParams.get('mall');
+    }
+    $('#location').html(currLocation);
+  </script>
 </body>
 </html>
