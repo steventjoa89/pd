@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title></title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+  <!-- Custom styles for this template -->
+  <!-- Custom styles for this template -->
+  <link href="blog.css" rel="stylesheet">
+  </head>
+</head>
+<body>
+
+  <main class="container">
+    <div style="margin-top: 20%;">
+      <div class="mt-4 d-flex justify-content-center">
+        <p class="font-roboto font-roboto-600">
+          Check-In Berhasil &nbsp;
+          <i class="fa fa-check-circle" style="font-size: 1.3rem; color:green"></i>
+        </p>
+      </div>
+    </div>
+
+    <div class="row mb-8">
+      <div class="col-md-12">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <h6 class="my-1 center font-roboto font-roboto-600">Tiket Check-In</h6>
+
+            <p id="location" class="my-1 center font-roboto font-roboto-400 font-roboto-subtitle">Supermall Karawaci</p>
+
+            <p class="my-1 center font-roboto font-roboto-500 font-roboto-subtitle font-roboto-status">Aktivitas Dalam Ruangan</p>
+            
+            <span class="pb-3 border-bottom"></span>
+
+            <h6 class="my-1 mt-4 center font-roboto font-roboto-500 font-roboto-date">Tanggal &amp; Waktu check-in</h6>
+
+            <p id="current-date" class="my-1 center font-roboto font-roboto-400 font-roboto-subtitle">20 Agustus 2021, 12:35 WIB</p>
+
+            <!-- QR CODE BEGINS HERE -->
+            <div class="my-1 center">
+              <img src="qr.jpg" />
+            </div>
+
+            <p class="my-1 center font-roboto font-roboto-600 font-roboto-subtitle-2 font-roboto-qr">Lihat QR Code</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-8">
+      <div class="col-md-12">
+        <div class="row g-0 shadow-sm border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <span class="my-1 font-roboto font-roboto-400">Selalu terapkan 3M:</span>
+            <ul class="ul-no-padding">
+              <li class="font-roboto font-roboto-400">Memakai masker.</li>
+              <li class="font-roboto font-roboto-400">Menjaga jarak.</li>
+              <li class="font-roboto font-roboto-400">Mencuci tangan atau menggunakan handsanitizer.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script type="text/javascript" src="jquery-latest.min.js"></script>
+  <script>
+    let currentdate = new Date();
+    // 20 Agustus 2021, 12:35 WIB
+    let month = "";
+    switch(currentdate.getMonth()+1){
+      case 1:
+        month = "Januari"
+        break;
+      case 2:
+        month = "Februari"
+        break;
+      case 3:
+        month = "Maret"
+        break;
+      case 4:
+        month = "April"
+        break;
+      case 5:
+        month = "Mei"
+        break;
+      case 6:
+        month = "Juni"
+        break;
+      case 7:
+        month = "Juli"
+        break;
+      case 8:
+        month = "Agustus"
+        break;
+      case 9:
+        month = "September"
+        break;
+      case 10:
+        month = "Oktober"
+        break;
+      case 11:
+        month = "November"
+        break;
+      case 12:
+        month = "Desember"
+        break;
+      default:
+        break;
+    }
+    let checkInDate = `${currentdate.getDate()} ${month} ${currentdate.getFullYear()}, ${currentdate.getHours()}:${currentdate.getMinutes()} WIB`;
+    $('#current-date').html(checkInDate);
+
+    let searchParams = new URLSearchParams(window.location.search)
+    let currLocation = "Supermall Karawaci";
+    if(searchParams.has('mall')){
+      currLocation = searchParams.get('mall');
+    }
+    $('#location').html(currLocation);
+  </script>
+</body>
+</html>

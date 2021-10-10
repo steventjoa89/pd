@@ -12,95 +12,271 @@
   <!-- Bootstrap core CSS -->
   <link href="bootstrap.min.css" rel="stylesheet">
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-
-  </style>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     
-  <!-- Custom styles for this template -->
-  <!-- Custom styles for this template -->
   <link href="blog.css" rel="stylesheet">
+
+  <style>
+    body{
+      background-color: #eeeeee;
+    }
+    .container{
+      margin-top: 9vh;
+    }
+    .check-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .check-circle{
+      border: 1px solid #e2e4e3;
+      padding: 10px;
+      border-radius: 50%;
+    }
+    .checkin-info{
+      color: green;
+      font: 'Roboto'
+    }
+    /* Card */
+    .data-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card-top{
+      margin-top: 30px;
+    }
+    .card{
+      border-color: 1px solid black;
+      width: 90vw;
+      background-color: #fff;
+      border-radius: 15px;
+      -webkit-box-shadow: 0px 0px 41px -19px rgba(211,211,211,255);
+      -moz-box-shadow: 0px 0px 41px -19px rgba(211,211,211,255);
+      box-shadow: 0px 0px 41px -8px rgba(211,211,211,255);
+    }
+
+    .card-body{
+      margin-top: 7px;
+      margin-left: 1vw;
+      border-bottom: 2px dashed #d3d3d3;
+    }
+
+    .card-body::before {
+      content: "";
+      position: absolute;
+      background-color: #e4e4e4;
+      top: 158px;
+      left: -2vw;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    .card-body::after {
+      content: "";
+      position: absolute;
+      background-color: #e4e4e4;
+      top: 158px;
+      left: 87vw;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .card-body-2::before{
+      content: "";
+      position: absolute;
+      background-color: #e4e4e4;
+      top: 411px;
+      left: -2vw;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .card-body-2::after{
+      content: "";
+      position: absolute;
+      background-color: #e4e4e4;
+      top: 411px;
+      left: 87vw;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .card-body-bottom{
+      border-bottom: 2px solid #d3d3d3;
+    }
+    .card-title{
+      color: rgba(119,119,119,255);
+      font-weight: 500;
+    }
+    .card-title-2{
+      margin-top: 14px;
+    }
+    .card-description{
+      font-size: 0.9rem;
+    }
+    .spacer{
+      margin-top: 20px;
+    }
+    .category-activity{
+      color: #eb842c;
+    }
+    .qr-container{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #07934f;
+      height: 90px;
+      border-radius: 10px;
+    }
+    .qr-image-content{
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      margin: 0 20px;
+    }
+    .show-qr{
+      color: white;
+      background-color: #45a977;
+      padding: 10px 25px 10px 25px;
+      margin-right: 20px;
+      border-radius: 25px;
+    }
+    .close-container{
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    .close-button{
+      display: flex;
+    }
+    .close-icon{
+      color: #064a6d;
+      font-size: 1.6rem;
+      font-weight: normal;
+    }
+    .close-button-text{
+      margin-left: 14px;
+      font-size: 1.1rem;
+      color: #064a6d;
+    }
+  </style>
   </head>
 </head>
 <body>
 
   <main class="container">
-    <div style="margin-top: 20%;">
-      <div class="mt-4 d-flex justify-content-center">
-        <p class="font-roboto font-roboto-600">
-          Check-In Berhasil &nbsp;
-          <i class="fa fa-check-circle" style="font-size: 1.3rem; color:green"></i>
-        </p>
+    <div class="close-container">
+      <div class="close-button">
+        <i class="fas fa-times close-icon"></i> <span class="close-button-text font-roboto font-roboto-600">Tutup</span>
       </div>
     </div>
 
-    <div class="row mb-8">
-      <div class="col-md-12">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <h6 class="my-1 center font-roboto font-roboto-600">Tiket Check-In</h6>
+    <div class="check-container">
+      <div class="check-circle">
+        <i class="fa fa-check-circle" style="font-size: 2.5rem; color:green"></i>
+      </div>
+    </div>
+    <div class="check-container">
+      <div class="font-roboto font-roboto-600 checkin-info">
+        Check-In Berhasil
+      </div>
+    </div>
 
-            <p id="location" class="my-1 center font-roboto font-roboto-400 font-roboto-subtitle">Supermall Karawaci</p>
-
-            <p class="my-1 center font-roboto font-roboto-500 font-roboto-subtitle font-roboto-status">Aktivitas Dalam Ruangan</p>
+    <div class="data-container">
+      <div class="card card-top">
+        <div class="card-body">
+          <div class="card-title">
+            Nama Lengkap
+          </div>
+          <div class="card-description font-roboto font-roboto-600">
+            Brian Kolopaking
+          </div>
+          <div class="card-title spacer">
+            Nomor Induk Kependudukan (NIK)
+          </div>
+          <div class="card-description font-roboto font-roboto-600">
             
-            <span class="pb-3 border-bottom"></span>
+            <span id="nik"></span>
+          </div>
+        </div>
+        
+        <div class="card-body card-body-2">
+          <div class="card-title card-title-2">
+            Lokasi Check-In
+          </div>
+          <div class="card-description font-roboto font-roboto-600">
+            <span id="location"></span>
+          </div>
+          <div class="card-title spacer">
+            Tanggal &amp; Waktu chcek-in
+          </div>
+          <div class="card-description font-roboto font-roboto-600">
+            08 Oktober 2021, 19:06 WIB<br/>
+            <span id="current-date"></span>
+          </div>
 
-            <h6 class="my-1 mt-4 center font-roboto font-roboto-500 font-roboto-date">Tanggal &amp; Waktu check-in</h6>
+          <div class="card-title spacer">
+            Kategori Aktivitas
+          </div>
+          <div class="card-description font-roboto font-roboto-600 category-activity">
+            Aktivitas Dalam Ruangan
+          </div>
+        </div>
 
-            <p id="current-date" class="my-1 center font-roboto font-roboto-400 font-roboto-subtitle">20 Agustus 2021, 12:35 WIB</p>
-
-            <!-- QR CODE BEGINS HERE -->
-            <div class="my-1 center">
-              <img src="qr.jpg" />
+        <div class="card-body card-body-bottom">
+          <div class="qr-container">
+            <div class="qr-image">
+              <img src="qr-no-frame.png" alt="" class="qr-image-content"/>
             </div>
-
-            <p class="my-1 center font-roboto font-roboto-600 font-roboto-subtitle-2 font-roboto-qr">Lihat QR Code</p>
+            <div class="show-qr font-roboto font-roboto-500">
+              Lihat QR Code
+            </div>
           </div>
-        </div>
       </div>
+      
     </div>
-
-    <div class="row mb-8">
-      <div class="col-md-12">
-        <div class="row g-0 shadow-sm border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <span class="my-1 font-roboto font-roboto-400">Selalu terapkan 3M:</span>
-            <ul class="ul-no-padding">
-              <li class="font-roboto font-roboto-400">Memakai masker.</li>
-              <li class="font-roboto font-roboto-400">Menjaga jarak.</li>
-              <li class="font-roboto font-roboto-400">Mencuci tangan atau menggunakan handsanitizer.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
+    
   </main>
   
   <script type="text/javascript" src="jquery-latest.min.js"></script>
   <script>
+    let searchParams = new URLSearchParams(window.location.search)
+    let currLocation = "Supermall Karawaci";
+    if(searchParams.has('mall')){
+      currLocation = searchParams.get('mall');
+    }
+    $('#location').html(currLocation);
+
+    const getRandomNum = (max=29) => {
+      let num = 0;
+      return Math.floor(Math.random() * max) +1 ;
+    }
+    $('#nik').html('3173081'+getRandomNum(9)+'0'+getRandomNum(9)+'08000'+getRandomNum(9))
+
+    // Get Date and Time
     let currentdate = new Date();
-    // 20 Agustus 2021, 12:35 WIB
     let month = "";
     switch(currentdate.getMonth()+1){
       case 1:
@@ -142,15 +318,13 @@
       default:
         break;
     }
-    let checkInDate = `${currentdate.getDate()} ${month} ${currentdate.getFullYear()}, ${currentdate.getHours()}:${currentdate.getMinutes()} WIB`;
-    $('#current-date').html(checkInDate);
-
-    let searchParams = new URLSearchParams(window.location.search)
-    let currLocation = "Supermall Karawaci";
-    if(searchParams.has('mall')){
-      currLocation = searchParams.get('mall');
+    
+    let minutes = currentdate.getMinutes();
+    if(minutes.length == 1){
+      minutes = '0'+minutes;
     }
-    $('#location').html(currLocation);
+    let checkInDate = `${currentdate.getDate()} ${month} ${currentdate.getFullYear()}, ${currentdate.getHours()}:${minutes} WIB`;
+    $('#current-date').html(checkInDate);
   </script>
 </body>
 </html>
