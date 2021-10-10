@@ -231,7 +231,7 @@
             <span id="location"></span>
           </div>
           <div class="card-title spacer">
-            Tanggal &amp; Waktu chcek-in
+            Tanggal &amp; Waktu check-in
           </div>
           <div class="card-description font-roboto font-roboto-600">
             <span id="current-date"></span>
@@ -326,11 +326,15 @@
         break;
     }
     
-    let minutes = currentdate.getMinutes();
-    if(minutes.length == 1){
-      minutes = '0'+minutes;
+    let hours = currentdate.getHours().toString();
+    if(hours.length===1){
+      hours = "0"+hours;
     }
-    let checkInDate = `${currentdate.getDate()} ${month} ${currentdate.getFullYear()}, ${currentdate.getHours()}:${minutes} WIB`;
+    let minutes = currentdate.getMinutes().toString();
+    if(minutes.length === 1){
+      minutes = "0"+minutes;
+    }
+    let checkInDate = `${currentdate.getDate()} ${month} ${currentdate.getFullYear()}, ${hours}:${minutes} WIB`;
     $('#current-date').html(checkInDate);
   </script>
 </body>
