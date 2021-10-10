@@ -180,6 +180,9 @@
       font-size: 1.1rem;
       color: #064a6d;
     }
+    .card-name{
+      text-transform: lowercase;
+    }
   </style>
   </head>
 </head>
@@ -210,13 +213,12 @@
             Nama Lengkap
           </div>
           <div class="card-description font-roboto font-roboto-600">
-            Brian Kolopaking
+            <span id="name" class="card-name"></span>
           </div>
           <div class="card-title spacer">
             Nomor Induk Kependudukan (NIK)
           </div>
           <div class="card-description font-roboto font-roboto-600">
-            
             <span id="nik"></span>
           </div>
         </div>
@@ -232,7 +234,6 @@
             Tanggal &amp; Waktu chcek-in
           </div>
           <div class="card-description font-roboto font-roboto-600">
-            08 Oktober 2021, 19:06 WIB<br/>
             <span id="current-date"></span>
           </div>
 
@@ -263,6 +264,12 @@
   <script type="text/javascript" src="jquery-latest.min.js"></script>
   <script>
     let searchParams = new URLSearchParams(window.location.search)
+    let currName = 'Budi';
+    if(searchParams.has('nama')){
+      currName = searchParams.get('nama');
+    }
+    $('#name').html(currName);
+
     let currLocation = "Supermall Karawaci";
     if(searchParams.has('mall')){
       currLocation = searchParams.get('mall');
